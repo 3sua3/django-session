@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Article category list</title>
+</head>
+<body>
+    <h2>{{category_kind}} category list</h2>
+    <div class="container">
+        <ul>
+        {% for article in category_articles %}
+        <li><a href="{% url 'detail' article.id %}">{{ article.title }}</a></li>
+        {% endfor%} 
+        </ul>
+    </div>
+    <a href = "{% url 'list' %}">back to list</a>
+    <a href = "{% url 'new' %}">write article</a>
+</body>
+</html>

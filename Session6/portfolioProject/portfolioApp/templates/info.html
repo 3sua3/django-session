@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" type = "text/css" href= "{% static 'info.css'%}" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alkatra&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <div class="overlay">
+        <div class="topbar">
+            <div class="name"><span>Sua</span></div>
+            <div class="menu">
+                <a class = "link" href = "{% url 'info' %}">info</a>
+                <a class = "link" href = "{% url 'project' %}">project</a>
+            </div>
+        </div>
+        <div class="containerone">
+            <span class = "up">HI!</span>
+            <span class = "down">I am Sua</span>
+            <span class = "subtitle">Department of Integrative Energy Engineering</span>
+        </div>
+        <div class="containertwo">
+            <div class="about-img-holder">
+                <img src="../static/IMG_1195.JPG" class="about-img" />
+            </div>
+            <div class="about-caption">
+                <span>Who am I?</span>
+                <span>About Me</span>
+                <span>"Become a person who gives value to the world"</span>
+                <span>Age: 22</span>
+                <span>Hobby: Watching baseball games and volleyball games</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

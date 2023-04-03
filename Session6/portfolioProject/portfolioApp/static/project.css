@@ -1,0 +1,47 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: plum;
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: 'Alkatra', cursive;
+    line-height: 1.15;
+    font-size: 1rem;
+    font-weight: 400;
+
+}
+.topbar{
+    padding-top: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    font-size: calc(20px + (30 - 20) * ((100vw - 300px) / (1300 - 300)));
+    text-decoration: none;
+    color: #fff;
+
+}
+.image{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-left: 10%;
+    float: left;
+
+}
+.image .portfolio{
+    width: 100px;
+    object-fit: fill;
+    margin-left: 10px;
+    font-family: 'Black-Han', sans-serif;
+    line-height: 1.15;
+    font-size: 1rem;
+    font-weight: 400;
+}
+.image .portfolio .toss{
+    position: absolute;
+    right: 30%;
+    
+}
