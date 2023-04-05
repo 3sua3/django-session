@@ -1,0 +1,53 @@
+body{
+    background-image: url('./old-crumpled-paper-texture-background_118047-12865.avif');
+
+}
+@font-face {
+    font-family: 'TAN-NIMBUS';
+       src: url('https://static1.squarespace.com/static/62810b9d4812f85fc8714315/t/628117600b44e368c8b4e3c3/1652627297937/Regards.otf');
+}
+h2{
+    font-family: 'TAN-NIMBUS';
+    font-size: 50px;
+    color: #3E251E;
+}
+.row{
+    font-family: 'Droid Serif';
+    font-size: 23px;
+    color: #3E251E;
+    width: 30%;
+    height: 70%;
+    border: 1px solid #3E251E;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.name{
+    font-family: 'Droid Serif';
+    font-size: 23px;
+    color: #3E251E;
+}
+.row a{
+    font-family: 'TAN-NIMBUS';
+    font-size: 30px;
+    color: #3E251E;
+}
+.container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.foodrow .image{
+    background-image: url('./KakaoTalk_20230403_150640895.jpg');
+}
+.nextrow .image{
+    background-image: url('./KakaoTalk_20230402_142634682_19.jpg');
+}
+.musicrow .image{
+    background-image: url('./KakaoTalk_20230403_171654583.jpg');
+}
+.row .image{
+    width: 400px;
+    height: 1000px;
+    background-size: contain;
+}

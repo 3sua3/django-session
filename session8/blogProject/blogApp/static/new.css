@@ -1,0 +1,23 @@
+body{
+    background-image: url('./old-crumpled-paper-texture-background_118047-12865.avif');
+}
+@font-face {
+    font-family: 'TAN-NIMBUS';
+       src: url('https://static1.squarespace.com/static/62810b9d4812f85fc8714315/t/628117600b44e368c8b4e3c3/1652627297937/Regards.otf');
+}
+h2{
+    font-family: 'TAN-NIMBUS';
+    font-size: 36px;
+    color: #3E251E;
+}
+.name{
+    font-family: 'Droid Serif';
+    font-size: 23px;
+    color: #3E251E;
+
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

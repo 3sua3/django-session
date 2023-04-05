@@ -4,39 +4,41 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Droid+Serif" />
     {%load static%}
+    <link rel="stylesheet" type = "text/css" href= "{% static 'list.css'%}" />
     <title>Article List</title>
 </head>
 <body>
-    <h2>list</h2>
+    <h2 class = 'title'> Article List</h2>
     <!-- <ul>
         {% for article in articles %}
         <li><a href="{% url 'detail' article.id %}">{{ article.title }}</a></li>
         {% endfor%} 
     </ul>-->
     <div class="container">
-        <div class = "foodrow">
+        <div class = "foodrow row">
             <a href="{%url 'category' 'food'%}">food [{{food_number}}]</a>
             <div class="image">
-                <img src="{%static './KakaoTalk_20230403_150640895.jpg'%}" />
+                <!-- <img src="{%static './KakaoTalk_20230403_150640895.jpg'%}" /> -->
             </div>
             <span class="sentence">Delicious food is the best..</span>
         </div>
-        <div class = "nextrow">
+        <div class = "nextrow row">
             <a href="{%url 'category' 'next'%}">next [{{next_number}}]</a>
             <div class="image">
-                <img src="{%static './KakaoTalk_20230402_142634682_19.jpg'%}" />
+                <!-- <img src="{%static './KakaoTalk_20230402_142634682_19.jpg'%}" /> -->
             </div>
             <span class="sentence">Next is the best..</span>
         </div>
-        <div class = "musicrow">
+        <div class = "musicrow row">
             <a href="{%url 'category' 'music'%}">music [{{music_number}}]</a>
             <div class="image">
-                <img src="{%static './KakaoTalk_20230403_171654583.jpg'%}" />
+                <!-- <img src="{%static './KakaoTalk_20230403_171654583.jpg'%}" /> -->
             </div>
             <span class="sentence">Kwon Jinah song is the best..</span>
         </div>
     </div>
-    <a href = "{% url 'new' %}">write article</a>
+    <a href = "{% url 'new' %}" class = "name">write article</a>
 </body>
 </html>
