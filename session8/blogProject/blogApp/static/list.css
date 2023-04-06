@@ -1,6 +1,8 @@
 body{
     background-image: url('./old-crumpled-paper-texture-background_118047-12865.avif');
-
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 @font-face {
     font-family: 'TAN-NIMBUS';
@@ -10,22 +12,31 @@ h2{
     font-family: 'TAN-NIMBUS';
     font-size: 50px;
     color: #3E251E;
+    text-align: center;
 }
 .row{
     font-family: 'Droid Serif';
     font-size: 23px;
     color: #3E251E;
-    width: 30%;
+    text-align: center;
+    width: 55%;
     height: 70%;
     border: 1px solid #3E251E;
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-left: 40px;
 }
 .name{
+    margin-top: 20px;
+    width: 140px;
+    background-color: #3E251E;
+    text-align: center;
+}
+.name a{
     font-family: 'Droid Serif';
     font-size: 23px;
-    color: #3E251E;
+    color: white;
 }
 .row a{
     font-family: 'TAN-NIMBUS';
@@ -36,18 +47,26 @@ h2{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    position: relative;
+    right: 20px;
 }
 .foodrow .image{
     background-image: url('./KakaoTalk_20230403_150640895.jpg');
 }
 .nextrow .image{
     background-image: url('./KakaoTalk_20230402_142634682_19.jpg');
+    
+}
+.row .image{
+    width: 360px;
+    height: 400px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 .musicrow .image{
     background-image: url('./KakaoTalk_20230403_171654583.jpg');
-}
-.row .image{
-    width: 400px;
-    height: 1000px;
-    background-size: contain;
+    height: 380px;
 }

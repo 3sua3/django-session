@@ -29,7 +29,6 @@ def list(request):
     return render(request, 'list.html', {'food_number' : food_number, 'next_number' : next_number, 'music_number' : music_number})
 
 def detail(request, article_id):
-
     article = Article.objects.get(id = article_id)
     post_date = article.updated_at
     return render(request, 'detail.html', {'article' : article, 'post_date' : post_date})
