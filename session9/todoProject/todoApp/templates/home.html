@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Droid+Serif" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@800&display=swap" rel="stylesheet">
+    {% load static %}
+    <link rel="stylesheet" type = "text/css" href= "{% static 'home.css' %}" />
+</head>
+<body>
+    <div class="container">
+        <h2>todo - list</h2>
+        <div class = "flex">
+            <ul>
+                {% for task in tasks %}
+                <div class="list">
+                    <li>
+                        <a href = "{% url 'detail' task.pk %}" class = "title">{{ task.title }}</a>
+                        <p class = "date">{{ task.deadline_dt }}</p>
+                        <p class = "date">D-{{ task.deadline }}</p>
+                    </li>
+                    <div>
+                        <a href="{% url 'delete' task.pk %}" class = "delete">delete</a>
+                    </div>
+                </div>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="name">
+            <a href="{% url 'new' %}">create todo</a>
+        </div>
+    </div>
+</body>
+</html>

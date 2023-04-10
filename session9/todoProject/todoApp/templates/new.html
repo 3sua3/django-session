@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Droid+Serif" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@800&display=swap" rel="stylesheet">
+    {% load static %}
+    <link rel="stylesheet" type = "text/css" href= "{% static 'new.css' %}" />
+</head>
+<body>
+    <div class = "container">
+        <h2>todo - list</h2>
+        <form action="" method="post">
+            {% csrf_token %}
+            <input type="text" name="title" class="title" placeholder="할일"><br/>
+            <textarea name="content" id="" cols="30" rows="10" placeholder="내용을 입력하세요."></textarea>
+            <div class = 'deadline'>
+                <label for="deadline">deadline: </label>
+                <input type="date" name="deadline_dt" class="deadline" id="deadline">
+            </div>
+            <div class = "go">
+                <a class="flex" href="{% url 'home' %}">go to list</a>
+            </div>
+                <button class="flex" type="submit">submit</button>
+        </form>
+    </div>
+</body>
+</html>

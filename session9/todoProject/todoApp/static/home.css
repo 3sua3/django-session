@@ -1,0 +1,53 @@
+body{
+    background-image: url('./old-crumpled-paper-texture-background_118047-12865.avif');
+}
+@font-face {
+    font-family: 'TAN-NIMBUS';
+       src: url('https://static1.squarespace.com/static/62810b9d4812f85fc8714315/t/628117600b44e368c8b4e3c3/1652627297937/Regards.otf');
+}
+h2{
+    font-family: 'TAN-NIMBUS';
+    font-size: 36px;
+    color: #3E251E;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Nanum Myeongjo', serif;
+    font-size: 20px;
+    color: #3E251E;
+}
+.flex{
+    border: 1px solid #3E251E;
+    padding-right: 10px;
+}
+.container a{
+    color: #3E251E;
+}
+.container .delete{
+    font-size: 17px;
+    color: #000000;
+}
+.list{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+li{
+    margin-right: 30px;
+}
+.date{
+    font-size: 12px;
+    color: rgb(82, 82, 82);
+}
+.name{
+    margin-top: 10px;
+    background-color: #3E251E;
+    text-align: center;
+}
+.name a{
+    font-family: 'Droid Serif';
+    font-size: 23px;
+    color: white;
+}
