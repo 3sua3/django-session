@@ -1,21 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Article</title>
-    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Droid+Serif" />
-    {% load static %}
-    <link rel="stylesheet" type = "text/css" href= "{% static 'detail.css'%}" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@800&display=swap" rel="stylesheet">
-</head>
-<body>
-    <h2><strong>{{article.id}}. {{article.title}}</strong></h2>
+{% extends 'base.html' %}
+{% block css %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'detail.css' %}">
+{% endblock %}
+
+{% block content %}
+<h2><strong>{{article.id}}. {{article.title}}</strong></h2>
     <div class = 'content'><p>{{article.content}}</p></div>
     <div class="date">{{post_date}}</div>
+    <form method="POST">
+        {% csrf_token %}
+        <input type = "text" name = "content" placeholder = "댓글을 입력해주세요" />
+        <button type = "submit">작성하기</button>
+    </form>
+    {% for comment in article.comments.all %}
+    <div class="comment">
+        <li class = "comments">{{comment.content}}
+            <a href="{% url 'delete-comment' article.id comment.id %}" class = "delete">삭제</a>
+            <a href="{% url 'recomment' article.id comment.id %}" class = "reply">답글</a>
+        </li>
+        {% for recomment in comment.recomments.all %}
+        <ul class = "recomment">-> {{recomment.recontent}}
+            <a href="{% url 'delete-recomment' article.id comment.id recomment.id%}" class = "delete">삭제</a>
+        </ul>
+        {% endfor %}
+    </div>
+    {% endfor %}
     <div class="name plus">
         <a href="{% url 'category' article.category %}">back to category</a>
     </div>
@@ -25,5 +35,4 @@
     <div class="name">
         <a href = "{% url 'new' %}">write article</a>
     </div>
-</body>
-</html>
+{% endblock %}

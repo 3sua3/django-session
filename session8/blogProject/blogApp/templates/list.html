@@ -1,16 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Droid+Serif" />
-    {% load static %}
-    <link rel="stylesheet" type = "text/css" href= "{% static 'list.css'%}" />
-    <title>Article List</title>
-</head>
-<body>
-    <h2 class = 'title'> Article List</h2>
+
+{% extends 'base.html' %}
+{% block css %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'list.css' %}">
+{% endblock %}
+
+{% block content %}
+<h2 class = 'title'> Article List</h2>
     <!-- <ul>
         {% for article in articles %}
         <li><a href="{% url 'detail' article.id %}">{{ article.title }}</a></li>
@@ -42,5 +38,4 @@
     <div class = "name">
         <a href = "{% url 'new' %}" class = "name">write article</a>
     </div>
-</body>
-</html>
+{% endblock %}

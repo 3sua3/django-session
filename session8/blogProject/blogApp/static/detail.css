@@ -49,3 +49,49 @@ p{
 .plus{
     width: 190px;
 }
+form{
+    margin-top: 10px;
+}
+form input, button{
+    font-family: 'Droid Serif';
+    font-size: 17px;
+    color: #3E251E;
+}
+form button{
+    background-color: #766965;
+    color: white;
+}
+.comment{
+    width: 80%;
+    background-color: antiquewhite;
+    text-align: start;
+    margin-top: 7px;
+    padding-left: 10px;
+    font-family: 'Nanum Myeongjo', serif;
+    padding-top: 10px;
+    position: relative;
+    border-radius: 10px;
+    padding-bottom: 5px;
+}
+.comment .reply{
+    position: absolute;
+    right: 5px;
+    font-size: 13px;
+    background-color: #3E251E;
+    color: white;
+}
+.comment .delete{
+    position: absolute;
+    right: 40px;
+    font-size: 13px;
+    background-color: #3E251E;
+    color: white;
+}
+.comment .comments{
+    font-size: 20px;
+}
+.comment .recomment{
+    position: relative;
+    top: -5px;
+    font-size: 15px;
+}

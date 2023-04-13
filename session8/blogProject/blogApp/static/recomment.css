@@ -1,0 +1,114 @@
+body{
+    background-image: url('./old-crumpled-paper-texture-background_118047-12865.avif');
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+@font-face {
+    font-family: 'TAN-NIMBUS';
+       src: url('https://static1.squarespace.com/static/62810b9d4812f85fc8714315/t/628117600b44e368c8b4e3c3/1652627297937/Regards.otf');
+}
+h2{
+    font-family: 'Nanum Myeongjo', serif;
+    font-size: 50px;
+    color: #3E251E;
+    text-align: center;
+    font-weight: 900;
+}
+p{
+    font-family: 'Nanum Myeongjo', serif;
+    font-size: 23px;
+    color: #3E251E;
+    text-align: center;
+    font-weight: 500;
+}
+.date{
+    font-family: 'Nanum Myeongjo', serif;
+    font-size: 17px;
+    color: #3E251E;
+    text-align: center;
+    font-weight: 700;
+    margin-top: 10px;
+}
+.content{
+    border: 1px solid #3E251E;
+    width: 80%;
+    height: 80%;
+}
+.name{
+    margin-top: 20px;
+    width: 140px;
+    background-color: #3E251E;
+    text-align: center;
+}
+.name a{
+    font-family: 'Droid Serif';
+    font-size: 23px;
+    color: white;
+}
+.plus{
+    width: 190px;
+}
+form{
+    margin-top: 10px;
+}
+form input, button{
+    font-family: 'Nanum Myeongjo', serif;
+    font-size: 17px;
+    color: #3E251E;
+}
+form button{
+    background-color: #766965;
+    color: white;
+}
+.comment{
+    width: 80%;
+    background-color: antiquewhite;
+    text-align: start;
+    margin-top: 7px;
+    padding-left: 10px;
+    font-family: 'Nanum Myeongjo', serif;
+    padding-top: 10px;
+    position: relative;
+    border-radius: 10px;
+}
+.comment .reply{
+    position: absolute;
+    right: 5px;
+    font-size: 13px;
+    background-color: #3E251E;
+    color: white;
+}
+.comment .delete{
+    position: absolute;
+    right: 40px;
+    font-size: 13px;
+    background-color: #3E251E;
+    color: white;
+}
+.comment .comments{
+    font-size: 20px;
+}
+.comment .recomment{
+    position: relative;
+    top: -5px;
+    font-size: 15px;
+}
+.form_recomment{
+    position: relative;
+    top: -10px;
+}
+.form_recomment input, button{
+    font-family: 'Nanum Myeongjo', serif;
+    font-size: 10px;
+    color: #3E251E;
+}
+.form_recomment button{
+    background-color: #766965;
+    color: white;
+}
+.back{
+    font-size: 13px;
+    background-color: #3E251E;
+    color: white;
+}

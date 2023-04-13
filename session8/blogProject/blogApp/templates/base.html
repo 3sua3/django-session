@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Article</title>
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Droid+Serif" />
+    
+    {% load static %}
+    <link rel="stylesheet" type = "text/css" href= "{% static 'base.css'%}" />
+    {% block css %} {% endblock css %}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@800&display=swap" rel="stylesheet">
+</head>
+<body>
+    {% block content %} {% endblock content %}
+    <div class="footer">
+        <p class = 'blogname'><strong>조수아의 블로그</strong></p><br/>
+        <p class = 'info'>고려대학교 융합에너지공학과 재학중<br/>학번:2022171204<br/></p>
+        <div class="sns_icon">
+            {% load static %}
+            <a href = "https://www.instagram.com/_3sua3/" ><img src="{% static './instagram.svg' %}"></a>
+            <a href = "https://www.instagram.com/_3sua3/"><img src = "{% static './twitter.svg' %}"></a>
+            <a href = "https://www.instagram.com/_3sua3/"><img src = "{% static './youtube.svg' %}"></a>
+        </div>
+    </div>
+</body>
+</html>

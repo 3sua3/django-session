@@ -1,0 +1,34 @@
+body{
+    background-image: url('./old-crumpled-paper-texture-background_118047-12865.avif');
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.footer{
+    width: 100%;
+    border-top: 1px solid #3E251E;
+    position: relative;
+    bottom: -20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 10px;
+}
+.footer p{
+    font-family: 'Nanum Myeongjo', serif;
+    color: gray;
+    text-align: start;
+}
+.blogname{
+    font-size: 12px;
+}
+.info{
+    font-size: 10px;
+    position: relative;
+    top: -30px;
+}
+.sns_icon{
+    position: relative;
+    top: -35px;
+    white-space: nowrap;
+}

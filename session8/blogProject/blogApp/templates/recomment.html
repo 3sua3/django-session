@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block css %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'recomment.css' %}">
+{% endblock %}
+
+{% block content %}
+<h2><strong>{{article.id}}. {{article.title}}</strong></h2>
+    <div class = 'content'><p>{{article.content}}</p></div>
+    <div class="date">{{post_date}}</div>
+    <form method="POST">
+        {% csrf_token %}
+        <input type = "text" name = "content" placeholder = "댓글을 입력해주세요" />
+        <button type = "submit">작성하기</button>
+    </form>
+    <div class="comment">
+        <li class = "comments">{{comment.content}}
+            <a href="{% url 'delete-comment' article.id comment.id %}" class = "delete">삭제</a><br/>
+            <form method="POST" class = "form_recomment">
+                {% csrf_token %}
+                <input type = "text" name = "recontent" placeholder = "대댓글을 입력해주세요"/>
+                <button type = "submit">작성하기</button>
+            </form>
+            {% for recomment in comment.recomments.all %}
+            <ul class = "recomment"> -> {{recomment.recontent}}
+                <a href="{% url 'delete-recomment' article.id comment.id recomment.id%}" class = "delete">삭제</a>
+            </ul>
+            {% endfor %}
+            <a href="{% url 'detail' article.id%}" class = "back">돌아가기</a><br/>
+        </li>
+    </div>
+    <div class="name plus">
+        <a href="{% url 'category' article.category %}">back to category</a>
+    </div>
+    <div class="name">
+        <a href = "{% url 'list' %}">back to list</a>
+    </div>
+    <div class="name">
+        <a href = "{% url 'new' %}">write article</a>
+    </div>
+{% endblock %}

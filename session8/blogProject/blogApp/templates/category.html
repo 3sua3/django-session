@@ -1,19 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Article category list</title>
-    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Droid+Serif" />
-    {% load static %}
-    <link rel="stylesheet" type = "text/css" href= "{% static 'category.css'%}" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@800&display=swap" rel="stylesheet">
-</head>
-<body>
-    <h2>{{category_kind}} category list</h2>
+{% extends 'base.html' %}
+{% block css %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'category.css' %}">
+{% endblock %}
+
+{% block content %}
+<h2>{{category_kind}} category list</h2>
     <div class="container">
         <ol>
         {% for article in category_articles %}
@@ -27,5 +19,4 @@
     <div class="name">
         <a href = "{% url 'new' %}">write article</a>
     </div>
-</body>
-</html>
+{% endblock %}
