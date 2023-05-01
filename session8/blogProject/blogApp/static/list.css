@@ -6,9 +6,9 @@ body{
 }
 @font-face {
     font-family: 'TAN-NIMBUS';
-       src: url('https://static1.squarespace.com/static/62810b9d4812f85fc8714315/t/628117600b44e368c8b4e3c3/1652627297937/Regards.otf');
+    src: url('https://static1.squarespace.com/static/62810b9d4812f85fc8714315/t/628117600b44e368c8b4e3c3/1652627297937/Regards.otf');
 }
-h2{
+.title{
     font-family: 'TAN-NIMBUS';
     font-size: 50px;
     color: #3E251E;

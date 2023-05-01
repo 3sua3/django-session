@@ -1,6 +1,12 @@
 from django.shortcuts import render, redirect
 from .models import Article, Comment, Recomment
+from django.contrib.auth.models import User
+from django.contrib import auth
+from django.contrib.auth.decorators import login_required
+from django.views.decorators.csrf import csrf_exempt
+
 # Create your views here.
+@login_required(login_url="/registration/login/")
 def new(request):
     if request.method == 'POST':
 
@@ -10,6 +16,7 @@ def new(request):
             title = request.POST['title'],
             content = request.POST['content'],
             category = request.POST['category'],
+            author = request.user['user']
         )
         return redirect('list')
     
@@ -36,7 +43,8 @@ def detail(request, article_id):
         content = request.POST['content']
         Comment.objects.create(
             article = article,
-            content = content
+            content = content,
+            author = request.user,
         )
         return redirect('detail', article_id)
     
@@ -70,3 +78,41 @@ def delete_recomment(request, article_id, comment_id, recomment_id):
     recomment = Recomment.objects.get(id=recomment_id)
     recomment.delete()
     return redirect('recomment', article_id, comment_id)
+
+def signup(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password'] 
+        User.objects.create_user(username=username, password=password)
+
+        exist_user = User.objects.filter(username=username)
+
+        if exist_user:
+            error = "이미 존재하는 유저입니다."
+            return render(request, 'registration/signup.html', {"error":error})
+
+        new_user = User.objects.create_user(username=username, password=password)
+        auth.login(request, new_user)
+
+        return redirect('list')
+    return render(request, 'registration/signup.html')
+
+def login(request):
+   if request.method == 'POST':
+       username = request.POST['username']
+       password = request.POST['password']
+
+       user = auth.authenticate(username=username, password=password)
+
+       if user is not None:
+            auth.login(request, user, backend ="django.contrib.auth.backends.ModelBackend")
+            return redirect('list')
+            return redirect(request.GET.get('next', '/'))
+       error = "아이디 또는 비밀번호가 틀립니다"
+       return render(request, 'registration/login.html', {"error":error})
+
+   return render(request, 'registration/login.html')
+
+def logout(request):
+   auth.logout(request)
+   return redirect('list')

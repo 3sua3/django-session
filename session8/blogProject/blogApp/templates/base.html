@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Article</title>
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Droid+Serif" />
-    
+    {% load account socialaccount %}
+    {% providers_media_js %}
     {% load static %}
     <link rel="stylesheet" type = "text/css" href= "{% static 'base.css'%}" />
     {% block css %} {% endblock css %}
@@ -15,6 +16,41 @@
     <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@800&display=swap" rel="stylesheet">
 </head>
 <body>
+    <nav id="navbar">
+        <div class="navbar__logo">
+          <a href="{% url 'list' %}">NEXT-LIKELION</a>
+        </div>
+        <ul class="navbar__menu">
+          <li class="navbar__menu__item">
+            <a href="{% url 'new' %}">New</a>
+          </li>
+          <li class="navbar__menu__item">
+            <a href="{% url 'list' %}">Home</a>
+          </li>
+          {% if user.is_authenticated %}
+          <span class="navbar__menu__item">안녕, {{user.username}}</span>
+          <li class="navbar__menu__item">
+            <a href="{% url 'logout'%}">로그아웃</a>
+          </li>
+          {% else %}
+          <li class="navbar__menu__item">
+            <a href="{% url 'login'%}">로그인</a>
+          </li>
+          <li class="navbar__menu__item">
+            <a href="{% url 'signup'%}">회원가입</a>
+          </li>
+          <form method = "POST" action="{% provider_login_url 'kakao' %}" >
+            {% csrf_token %} {{ form.as_p }} {% if redirect_field_value %}
+            <input type ="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" /> 
+            {% endif %} 
+            <button class = "primaryAction" type="submit">Continue with kakao</button>
+        </form>
+          <li class="navbar__menu__item">
+            <a href="{% provider_login_url 'kakao' %}">카카오 로그인</a>
+          </li> 
+          {% endif %}
+        </ul>
+    </nav>
     {% block content %} {% endblock content %}
     <div class="footer">
         <p class = 'blogname'><strong>조수아의 블로그</strong></p><br/>

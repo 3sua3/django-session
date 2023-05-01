@@ -15,12 +15,16 @@
     </form>
     {% for comment in article.comments.all %}
     <div class="comment">
-        <li class = "comments">{{comment.content}}
+        <li class = "comments"><span>{{comment.content}}</span>
+            {% if user.pk == comment.author.pk and user.is_authenticated %}
             <a href="{% url 'delete-comment' article.id comment.id %}" class = "delete">삭제</a>
             <a href="{% url 'recomment' article.id comment.id %}" class = "reply">답글</a>
+            {% endif %}
         </li>
         {% for recomment in comment.recomments.all %}
-        <ul class = "recomment">-> {{recomment.recontent}}
+        <ul class = "recomment">-> <span>{{recomment.recontent}}</span>
+            {% if user.pk == recomment.author.pk and user.is_authenticated %}
+            {% endif %}
             <a href="{% url 'delete-recomment' article.id comment.id recomment.id%}" class = "delete">삭제</a>
         </ul>
         {% endfor %}
