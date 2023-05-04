@@ -1,0 +1,25 @@
+{% extends 'blog/base.html' %}
+
+{% block css %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'blog/home.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="main">
+    <div class="content">
+        <ul>
+            {% for post in posts %}
+            <li>
+                <h3><a href="{% url 'blog:detail' post.pk %}">{{ post.title }}</a></h3>
+                <div class="info">
+                    <span>작성자: {{ post.author }}</span>
+                    <span>날짜: {{ post.update_dt }}</span>
+                </div>
+                <p>{{ post.content }}</p>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock %}

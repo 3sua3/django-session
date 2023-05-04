@@ -1,0 +1,57 @@
+{% extends 'blog/base.html' %}
+
+{% block css %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'blog/detail.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="main">
+    <div class="contentWrapper">
+        <div class="form">
+            <div class="titleWrapper">
+                <span class="label">Title</span>
+                <h3 class="input">{{ post.title }}</h3>
+            </div>
+            <div class="dateWrapper">
+                <span class="date">작성자: {{ post.author }}</span>
+                <span class="date">날짜: {{ post.update_dt }}</span>
+            </div>
+            <div class="textWrapper">
+                <span class="label">Content</span>
+                <p class="textarea">{{ post.content }}</p>
+            </div>
+            <div class="undermenu">
+                <a href="{% url 'blog:home' %}">돌아가기</a>
+                {% if user.is_authenticated and user.id == post.author.id %}
+                <a href="{% url 'blog:update' post.pk %}">수정</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+<div class="commentWrapper">
+    <form action="" method="post">
+        {% csrf_token %}
+        {% if user.is_authenticated %}
+        <button type="submit">+</button>
+        {% endif %}
+        <input type="text" name="comment" placeholder="댓글을 입력하세요.">
+    </form>
+    <ul class="comment">
+        {% for comment in post.comments.all %}
+        <li>
+            {% if user.is_authenticated and user.pk == comment.author.pk %}
+            <a href="{% url 'blog:deleteComment' post.pk comment.pk %}">-</a>
+            {% else %}
+            <a href=""></a>
+            {% endif %}
+            {{ comment.content }}
+            <span>
+                작성자: {{ comment.author }}
+            </span>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
